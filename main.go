@@ -94,7 +94,7 @@ func getCommands() map[string]cliCommand {
 		},
 		"pokedex": {
 			name:        "pokedex",
-			description: "Check which Pokemon are already in your Pokedex.",
+			description: "Check which Pokemon you caught already and added to your Pokedex.",
 			callback:    pokedex,
 		},
 		"help": {
