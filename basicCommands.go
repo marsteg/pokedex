@@ -37,7 +37,7 @@ func tiny(c *config, input []string) error {
 	return nil
 }
 
-func getPokething[T Pokemon | LocationArea | LocationAreas](url string, c pokecache.Cache) (T, error) {
+func getPokething[T Pokemon | LocationArea | LocationAreas | Move](url string, c pokecache.Cache) (T, error) {
 	var pokemon T
 
 	val, exists := c.Get(url)

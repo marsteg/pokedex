@@ -29,9 +29,12 @@ func main() {
 
 	fmt.Println("Pokedex starting!")
 	scanner := bufio.NewScanner(os.Stdin)
+	var last string
+	fmt.Print(last)
 	for {
 		fmt.Print("pokedex > ")
 		scanner.Scan()
+		// arrow up should bring back the most recent command
 
 		input := strings.Fields(scanner.Text())
 
@@ -40,6 +43,8 @@ func main() {
 		}
 
 		commandName := input[0]
+
+		last = strings.Join(input, " ")
 
 		command, exists := getCommands()[commandName]
 		if exists {
@@ -59,7 +64,7 @@ func main() {
 
 func (c *config) loadConfig() {
 	//simple loading empty config as we do not have persistency
-	c.cache = pokecache.NewCache(5 * time.Second)
+	c.cache = pokecache.NewCache(5 * time.Minute)
 
 	c.pokedex = make(map[string]Pokemon)
 
