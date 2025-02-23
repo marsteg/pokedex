@@ -36,7 +36,8 @@ func main() {
 		scanner.Scan()
 		// arrow up should bring back the most recent command
 
-		input := strings.Fields(scanner.Text())
+		//input := strings.Fields(scanner.Text())
+		input := cleanInput(scanner.Text())
 
 		if len(input) == 0 {
 			continue
@@ -60,6 +61,15 @@ func main() {
 
 	}
 
+}
+
+func cleanInput(text string) []string {
+	words := strings.Fields(text)
+	for i := range words {
+		words[i] = strings.TrimSpace(words[i])
+		words[i] = strings.ToLower(words[i])
+	}
+	return words
 }
 
 func (c *config) loadConfig() {

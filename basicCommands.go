@@ -27,6 +27,7 @@ func help(c *config, _ []string) error {
 }
 
 func exit(c *config, _ []string) error {
+	fmt.Println("Closing the Pokedex... Goodbye!")
 	os.Exit(0)
 	return nil
 }
